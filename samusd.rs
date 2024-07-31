@@ -9,27 +9,27 @@ use {
     smashline::*,
 };
 
-unsafe extern "C" samusd_missile_game_homing(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_missile_game_homing(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 13.0, 40, 51, 0, 52, 2.4, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_SPEED, false, 6, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_OBJECT);
         AttackModule::enable_safe_pos(agent.module_accessor);
     }
 }
 
-unsafe extern "C" samusd_supermissile_game_ready(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_supermissile_game_ready(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 17.0, 65, 80, 0, 70, 2.5, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_SPEED, false, 12, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_OBJECT);
         AttackModule::enable_safe_pos(agent.module_accessor);
     }
 }
 
-unsafe extern "C" samusd_supermissile_game_straight(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_supermissile_game_straight(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 17.0, 65, 80, 0, 70, 2.5, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 12, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_OBJECT);
     }
 }
 
-unsafe extern "C" samusd_cshot_game_shoot(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_cshot_game_shoot(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 13.0, 40, 42, 0, 14, 1.9, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_SPEED, false, 10, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_elec"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_ENERGY);
         macros::ATTACK(agent, 1, 0, Hash40::new("top"), 33.0, 40, 50, 0, 46, 8.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_SPEED, false, 20, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_elec"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_ENERGY);
@@ -37,14 +37,14 @@ unsafe extern "C" samusd_cshot_game_shoot(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_bomb_game_fall(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_bomb_game_fall(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 22.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 14.0, 70, 65, 0, 44, 2.0, 0.0, 0.0, 0.0, None, None, None, 0.6, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 8, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_OBJECT);
     }
 }
 
-unsafe extern "C" samusd_bomb_game_burstattack(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_bomb_game_burstattack(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 16.0, 50, 65, 0, 44, 7.38, 0.0, 0.0, 0.0, None, None, None, 0.3, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 12, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_fire"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_BOMB, *ATTACK_REGION_OBJECT);
         ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosion"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
@@ -68,7 +68,7 @@ unsafe extern "C" samusd_bomb_game_burstattack(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_specialhi(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_specialhi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_SAMUS_STATUS_SPECIAL_HI_FLAG_DISABLE_LR);
     }
@@ -119,7 +119,7 @@ unsafe extern "C" samusd_game_specialhi(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_specialairhi(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_specialairhi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_SAMUS_STATUS_SPECIAL_HI_FLAG_DISABLE_LR);
     }
@@ -159,7 +159,7 @@ unsafe extern "C" samusd_game_specialairhi(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_aircatch(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_aircatch(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_AIR_LASSO_FLAG_CHECK);
     }
@@ -181,7 +181,7 @@ unsafe extern "C" samusd_game_aircatch(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_attacklw3(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_attacklw3(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 0.5);
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
@@ -196,7 +196,7 @@ unsafe extern "C" samusd_game_attacklw3(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_attack11(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_attack11(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 3.0, 361, 10, 0, 25, 2.0, 0.0, 10.0, 6.0, None, None, None, 0.8, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 1, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
@@ -216,7 +216,7 @@ unsafe extern "C" samusd_game_attack11(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_attack12(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_attack12(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("armr"), 12.0, 361, 95, 0, 30, 5.0, 5.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 3, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_PUNCH);
@@ -229,7 +229,7 @@ unsafe extern "C" samusd_game_attack12(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_attacks3(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_attacks3(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("hip"), 10.0, 80, 80, 0, 30, 3.5, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
@@ -245,7 +245,7 @@ unsafe extern "C" samusd_game_attacks3(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_attacks3hi(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_attacks3hi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("hip"), 12.0, 88, 80, 0, 30, 3.5, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
@@ -262,7 +262,7 @@ unsafe extern "C" samusd_game_attacks3hi(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_attacks3lw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_attacks3lw(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 0.9);
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
@@ -280,7 +280,7 @@ unsafe extern "C" samusd_game_attacks3lw(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_attackhi3(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_attackhi3(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 15.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("kneer"), 16.0, 270, 100, 0, 40, 6.3, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 10, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
@@ -295,7 +295,7 @@ unsafe extern "C" samusd_game_attackhi3(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_attackdash(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_attackdash(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 0.7);
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
@@ -316,7 +316,7 @@ unsafe extern "C" samusd_game_attackdash(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_attacklw4(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_attacklw4(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
@@ -341,7 +341,7 @@ unsafe extern "C" samusd_game_attacklw4(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_attacks4(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_attacks4(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
@@ -358,7 +358,7 @@ unsafe extern "C" samusd_game_attacks4(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_attacks4hi(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_attacks4hi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("armr"), 14.0, 361, 112, 0, 16, 3.3, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 1, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
@@ -371,7 +371,7 @@ unsafe extern "C" samusd_game_attacks4hi(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_attacks4lw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_attacks4lw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("armr"), 13.7, 361, 112, 0, 16, 3.3, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 7.5, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
@@ -384,7 +384,7 @@ unsafe extern "C" samusd_game_attacks4lw(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_attackairb(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_attackairb(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 0.7);
     frame(agent.lua_state_agent, 9.0);
     if macros::is_excute(agent) {
@@ -407,7 +407,7 @@ unsafe extern "C" samusd_game_attackairb(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_attackairn(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_attackairn(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -438,7 +438,7 @@ unsafe extern "C" samusd_game_attackairn(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_attackairf(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_attackairf(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 1.12);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -478,7 +478,7 @@ if macros::is_excute(agent) {
 }
 }
 
-unsafe extern "C" samusd_game_throwlw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_throwlw(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 0.81);
     if macros::is_excute(agent) {
         macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 8.0, 79, 75, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_elec_whip"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -502,7 +502,7 @@ unsafe extern "C" samusd_game_throwlw(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_downattackd(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_downattackd(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 1.15);
     frame(agent.lua_state_agent, 17.0);
     if macros::is_excute(agent) {
@@ -522,7 +522,7 @@ unsafe extern "C" samusd_game_downattackd(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_downattacku(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_downattacku(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 1.15);
     frame(agent.lua_state_agent, 17.0);
     if macros::is_excute(agent) {
@@ -542,7 +542,7 @@ unsafe extern "C" samusd_game_downattacku(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_slipattack(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_slipattack(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 19.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 10.0, 361, 50, 0, 60, 5.0, 0.0, 5.0, 15.0, Some(0.0), Some(5.0), Some(5.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 10, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
@@ -561,7 +561,7 @@ unsafe extern "C" samusd_game_slipattack(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_cliffattack(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_cliffattack(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 25.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 16.5, 45, 20, 0, 90, 5.0, 0.0, 5.0, 9.0, Some(0.0), Some(5.0), Some(-8.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 4, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
@@ -572,7 +572,7 @@ unsafe extern "C" samusd_game_cliffattack(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_attackairhi(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_attackairhi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -612,7 +612,7 @@ unsafe extern "C" samusd_game_attackairhi(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_throwhi(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_throwhi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 10.0, 90, 80, 0, 80, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
         macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 40, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -635,7 +635,7 @@ unsafe extern "C" samusd_game_throwhi(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_attackairlw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_attackairlw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -664,7 +664,7 @@ unsafe extern "C" samusd_game_attackairlw(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_throwf(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_throwf(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 0.8);
     if macros::is_excute(agent) {
         macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 12.0, 42, 55, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_elec_whip"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -685,7 +685,7 @@ unsafe extern "C" samusd_game_throwf(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_throwb(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_throwb(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 0.8);
     if macros::is_excute(agent) {
         macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 13.0, 35, 55, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_elec_whip"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -708,7 +708,7 @@ unsafe extern "C" samusd_game_throwb(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" samusd_game_attackhi4(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn samusd_game_attackhi4(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
