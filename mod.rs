@@ -17,7 +17,7 @@ unsafe extern "C" fn kirby_starmissile_game_fly(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby_finalcuttershot", script = "game_finalcutterregular", category = ACMD_GAME )]
-unsafe extern "C" kirby_finalcuttershot_game_finalcutterregular(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_finalcuttershot_game_finalcutterregular(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 9.0, 70, 95, 0, 85, 5.0, 0.0, 5.6, -5.1, None, None, None, 0.7, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 8, 0.0, 0, true, true, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_cutup"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_CUTUP, *ATTACK_REGION_NONE);
     }
@@ -28,7 +28,7 @@ unsafe extern "C" kirby_finalcuttershot_game_finalcutterregular(agent: &mut L2CA
 }
 
 #[acmd_script( agent = "kirby", script = "game_specialhi2", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_specialhi2(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_specialhi2(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::change_motion(agent.module_accessor, *FIGHTER_KIRBY_GENERATE_ARTICLE_FINALCUTTER, Hash40::new("special_hi2"), false, -1.0);
     }
@@ -65,7 +65,7 @@ unsafe extern "C" kirby_game_specialhi2(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_specialairhi2", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_specialairhi2(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_specialairhi2(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::change_motion(agent.module_accessor, *FIGHTER_KIRBY_GENERATE_ARTICLE_FINALCUTTER, Hash40::new("special_hi2"), false, -1.0);
     }
@@ -102,7 +102,7 @@ unsafe extern "C" kirby_game_specialairhi2(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_specials", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_specials(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_specials(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 0.7);
     frame(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {
@@ -126,7 +126,7 @@ unsafe extern "C" kirby_game_specials(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_specialsmax", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_specialsmax(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_specialsmax(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 0.7);
     frame(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {
@@ -149,7 +149,7 @@ unsafe extern "C" kirby_game_specialsmax(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_specialairs", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_specialairs(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_specialairs(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 0.7);
     frame(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {
@@ -178,7 +178,7 @@ unsafe extern "C" kirby_game_specialairs(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_specialairsmax", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_specialairsmax(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_specialairsmax(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 0.7);
     frame(agent.lua_state_agent, 11.0);
     if macros::is_excute(agent) {
@@ -198,7 +198,7 @@ unsafe extern "C" kirby_game_specialairsmax(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_speciallw", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_speciallw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_speciallw(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::change_motion(agent.module_accessor, *FIGHTER_KIRBY_GENERATE_ARTICLE_STONE, Hash40::new("special_lw"), false, -1.0);
     }
@@ -221,7 +221,7 @@ unsafe extern "C" kirby_game_speciallw(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_speciallwtoair", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_speciallwtoair(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_speciallwtoair(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::change_motion(agent.module_accessor, *FIGHTER_KIRBY_GENERATE_ARTICLE_STONE, Hash40::new("special_lw_to_air"), false, -1.0);
         AttackModule::clear(agent.module_accessor, 1, false);
@@ -231,7 +231,7 @@ unsafe extern "C" kirby_game_speciallwtoair(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_speciallwtoground", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_speciallwtoground(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_speciallwtoground(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::change_motion(agent.module_accessor, *FIGHTER_KIRBY_GENERATE_ARTICLE_STONE, Hash40::new("special_lw_to_ground"), false, -1.0);
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 23.0, 270, 66, 0, 86, 6.0, 0.0, 4.0, 6.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_POS, false, 20, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_BODY);
@@ -245,7 +245,7 @@ unsafe extern "C" kirby_game_speciallwtoground(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_specialairlw", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_specialairlw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_specialairlw(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         ArticleModule::change_motion(agent.module_accessor, *FIGHTER_KIRBY_GENERATE_ARTICLE_STONE, Hash40::new("special_air_lw"), false, -1.0);
     }
@@ -267,7 +267,7 @@ unsafe extern "C" kirby_game_specialairlw(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_attack100end", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_attack100end(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_attack100end(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 3.0, 20, 90, 0, 90, 5.0, 0.0, 5.5, 4.0, None, None, None, 3.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_PUNCH);
@@ -284,7 +284,7 @@ unsafe extern "C" kirby_game_attack100end(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_attacks3", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_attacks3(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_attacks3(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 1, 0, Hash40::new("footl"), 8.5, 361, 100, 0, 40, 3.1, 1.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
@@ -298,7 +298,7 @@ unsafe extern "C" kirby_game_attacks3(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_attacks3hi", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_attacks3hi(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_attacks3hi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 1, 0, Hash40::new("footl"), 8.0, 84, 50, 0, 40, 3.1, 1.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
@@ -312,7 +312,7 @@ unsafe extern "C" kirby_game_attacks3hi(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_attacks3lw", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_attacks3lw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_attacks3lw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 1, 0, Hash40::new("footl"), 8.0, 361, 100, 0, 40, 3.1, 1.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 4, 0.8, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
@@ -327,7 +327,7 @@ unsafe extern "C" kirby_game_attacks3lw(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_attacklw3", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_attacklw3(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_attacklw3(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("toer"), 6.0, 361, 75, 110, 0, 3.7, 4.3, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 0, 1.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_slip"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
@@ -341,7 +341,7 @@ unsafe extern "C" kirby_game_attacklw3(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_attackdash", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_attackdash(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_attackdash(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 9.0);
     if macros::is_excute(agent) {
         JostleModule::set_status(agent.module_accessor, false);
@@ -364,7 +364,7 @@ unsafe extern "C" kirby_game_attackdash(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_attackhi4", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_attackhi4(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_attackhi4(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 9.0);
     macros::FT_MOTION_RATE(agent, 0.6);
     if macros::is_excute(agent) {
@@ -399,7 +399,7 @@ unsafe extern "C" kirby_game_attackhi4(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_attackairn", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_attackairn(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_attackairn(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     macros::FT_MOTION_RATE(agent, 0.75);
     frame(agent.lua_state_agent, 5.0);
@@ -435,7 +435,7 @@ unsafe extern "C" kirby_game_attackairn(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_attackairhi", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_attackairhi(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_attackairhi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     macros::FT_MOTION_RATE(agent, 0.75);
     frame(agent.lua_state_agent, 9.0);
@@ -459,7 +459,7 @@ unsafe extern "C" kirby_game_attackairhi(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_throwlw", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_throwlw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_throwlw(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 8.0, 30, 111, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
         macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -495,7 +495,7 @@ if macros::is_excute(agent) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_throwhi", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_throwhi(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_throwhi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
         macros::FT_LEAVE_NEAR_OTTOTTO(agent, -2.5, 2.5);
@@ -531,7 +531,7 @@ unsafe extern "C" kirby_game_throwhi(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_throwb", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_throwb(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_throwb(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 8.0, 110, 110, 0, 10, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
         macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -556,7 +556,7 @@ unsafe extern "C" kirby_game_throwb(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_attackairb", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_attackairb(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_attackairb(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -580,7 +580,7 @@ unsafe extern "C" kirby_game_attackairb(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_attackairf", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_attackairf(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_attackairf(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -614,7 +614,7 @@ unsafe extern "C" kirby_game_attackairf(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_attackairlw", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_attackairlw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_attackairlw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 18.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -645,7 +645,7 @@ if macros::is_excute(agent) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_attacklw4", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_attacklw4(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_attacklw4(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 0.25);
     frame(agent.lua_state_agent, 4.0);
     macros::FT_MOTION_RATE(agent, 1.0);
@@ -677,7 +677,7 @@ unsafe extern "C" kirby_game_attacklw4(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_attacks4", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_attacks4(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_attacks4(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
@@ -697,7 +697,7 @@ unsafe extern "C" kirby_game_attacks4(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_attacks4hi", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_attacks4hi(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_attacks4hi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
@@ -717,7 +717,7 @@ unsafe extern "C" kirby_game_attacks4hi(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_attacks4lw", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_attacks4lw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_attacks4lw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
@@ -737,7 +737,7 @@ unsafe extern "C" kirby_game_attacks4lw(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_landingairlw", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_landingairlw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_landingairlw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 3.0, 60, 110, 0, 20, 5.4, 0.0, 3.2, 4.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 7, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
@@ -752,7 +752,7 @@ unsafe extern "C" kirby_game_landingairlw(agent: &mut L2CAgentBase) {
 }
 
 #[acmd_script( agent = "kirby", script = "game_attackhi3", category = ACMD_GAME )]
-unsafe extern "C" kirby_game_attackhi3(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn kirby_game_attackhi3(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
         macros::HIT_NODE(agent, Hash40::new("footr"), *HIT_STATUS_XLU);
