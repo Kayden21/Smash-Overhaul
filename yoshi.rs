@@ -9,7 +9,7 @@ use {
     smashline::*,
 };
 
-unsafe extern "C" yoshi_game_attackhi3(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attackhi3(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     macros::FT_MOTION_RATE(agent, 0.9);
     frame(agent.lua_state_agent, 7.0);
@@ -29,7 +29,7 @@ unsafe extern "C" yoshi_game_attackhi3(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_game_attacklw3(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attacklw3(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     macros::FT_MOTION_RATE(agent, 1.1);
     frame(agent.lua_state_agent, 7.0);
@@ -46,7 +46,7 @@ unsafe extern "C" yoshi_game_attacklw3(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 0.9);
 }
 
-unsafe extern "C" yoshi_game_attackdash(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attackdash(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 10.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("legl"), 11.0, 65, 66, 0, 90, 5.0, 6.1, 0.0, -0.5, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
@@ -64,7 +64,7 @@ unsafe extern "C" yoshi_game_attackdash(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 0.8);
 }
 
-unsafe extern "C" yoshi_game_attacks4lw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attacks4lw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
@@ -87,7 +87,7 @@ unsafe extern "C" yoshi_game_attacks4lw(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_game_attackairf(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attackairf(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 4.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -111,7 +111,7 @@ unsafe extern "C" yoshi_game_attackairf(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_game_cliffattack(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_cliffattack(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 20.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 9.0, 90, 20, 0, 95, 5.0, 0.0, 5.0, 12.5, Some(0.0), Some(5.0), Some(1.0), 1.0, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 1, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_TAIL);
@@ -122,7 +122,7 @@ unsafe extern "C" yoshi_game_cliffattack(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_game_attackhi4(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attackhi4(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 8.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
@@ -148,7 +148,7 @@ unsafe extern "C" yoshi_game_attackhi4(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_game_throwf(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_throwf(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 9.0, 45, 80, 0, 55, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
         macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 40, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -169,7 +169,7 @@ unsafe extern "C" yoshi_game_throwf(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_game_throwb(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_throwb(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 9.0, 45, 80, 0, 55, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
         macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 40, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -191,7 +191,7 @@ unsafe extern "C" yoshi_game_throwb(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_game_catchattack(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_catchattack(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("head"), 3.5, 361, 100, 30, 0, 5.7, 1.6, 0.0, 3.2, None, None, None, 2.1, 1.0, *ATTACK_SETOFF_KIND_OFF, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_YOSHI_BITE_HIT, *ATTACK_REGION_BITE);
@@ -203,7 +203,7 @@ unsafe extern "C" yoshi_game_catchattack(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_game_throwlw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_throwlw(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 1.7);
     if macros::is_excute(agent) {
         macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 8.0, 80, 114, 0, 60, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -226,7 +226,7 @@ unsafe extern "C" yoshi_game_throwlw(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_star_game_move(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_star_game_move(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 8.0, 50, 40, 0, 50, 4.0, 0.0, 0.0, 0.0, None, None, None, 0.0, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, 6, 0.0, 0, true, true, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_PUNCH, *ATTACK_REGION_NONE);
@@ -241,7 +241,7 @@ unsafe extern "C" yoshi_star_game_move(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_tamago_game_burst(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_tamago_game_burst(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 11.0, 70, 50, 0, 60, 6.5, 0.0, 0.0, 0.0, None, None, None, 0.6, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, 3, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_YOSHI_EGG_HIT, *ATTACK_REGION_OBJECT);
         ControlModule::set_rumble(agent.module_accessor, Hash40::new("rbkind_explosion"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
@@ -252,7 +252,7 @@ unsafe extern "C" yoshi_tamago_game_burst(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_game_speciallw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_speciallw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 7.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 4.0, 80, 100, 80, 0, 7.0, 0.0, 7.0, 10.0, None, None, None, 0.5, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_G, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_FIRE, *ATTACK_REGION_HIP);
@@ -272,7 +272,7 @@ unsafe extern "C" yoshi_game_speciallw(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_game_specialairlw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_specialairlw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 15.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_YOSHI_STATUS_SPECIAL_LW_FLAG_LANDING_ENABLE);
@@ -289,7 +289,7 @@ unsafe extern "C" yoshi_game_specialairlw(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_game_specialsloop(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_specialsloop(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 0.9);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 25.0, 80, 50, 0, 70, 2.3, 0.0, 5.6, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 35, 0.0, 32, false, false, false, false, true, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_BODY);
@@ -298,7 +298,7 @@ unsafe extern "C" yoshi_game_specialsloop(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_game_specialairsloop(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_specialairsloop(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 0.9);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 25.0, 80, 50, 0, 70, 2.3, 0.0, 5.6, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 35, 0.0, 32, false, false, false, false, true, *COLLISION_SITUATION_MASK_A, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_L, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_BODY);
@@ -307,7 +307,7 @@ unsafe extern "C" yoshi_game_specialairsloop(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_effect_specialsstart(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_effect_specialsstart(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 0.9);
     if macros::is_excute(agent) {
         macros::LANDING_EFFECT(agent, Hash40::new("sys_dash_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
@@ -322,7 +322,7 @@ unsafe extern "C" yoshi_effect_specialsstart(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_game_specialsend(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_specialsend(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 0.9);
     if macros::is_excute(agent) {
         AttackModule::clear_all(agent.module_accessor);
@@ -334,7 +334,7 @@ unsafe extern "C" yoshi_game_specialsend(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_game_specialairsstart(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_specialairsstart(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 0.9);
     frame(agent.lua_state_agent, 9.0);
     if macros::is_excute(agent) {
@@ -342,7 +342,7 @@ unsafe extern "C" yoshi_game_specialairsstart(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_game_specialairsend(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_specialairsend(agent: &mut L2CAgentBase) {
     macros::FT_MOTION_RATE(agent, 0.9);
     if macros::is_excute(agent) {
         AttackModule::clear_all(agent.module_accessor);
@@ -354,7 +354,7 @@ unsafe extern "C" yoshi_game_specialairsend(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_game_throwhi(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_throwhi(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_THROW, 0, 5.0, 90, 60, 0, 65, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
         macros::ATTACK_ABS(agent, *FIGHTER_ATTACK_ABSOLUTE_KIND_CATCH, 0, 3.0, 361, 100, 0, 40, 0.0, 1.0, *ATTACK_LR_CHECK_F, 0.0, true, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_NONE, *ATTACK_REGION_THROW);
@@ -375,13 +375,13 @@ unsafe extern "C" yoshi_game_throwhi(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_tomago_game_throwed(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_tomago_game_throwed(agent: &mut L2CAgentBase) {
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 11.0, 70, 50, 0, 60, 2.5, 0.0, -1.0, 0.0, Some(0.0), Some(0.0), Some(0.0), 0.6, 1.0, *ATTACK_SETOFF_KIND_THRU, *ATTACK_LR_CHECK_F, false, 1, 0.0, 0, true, false, false, false, false, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_YOSHI_EGG_HIT, *ATTACK_REGION_OBJECT);
     }
 }
 
-unsafe extern "C" yoshi_game_attacks3lw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attacks3lw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("tail1"), 8.0, 88, 75, 0, 60, 4.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_SLAP, *ATTACK_REGION_TAIL);
@@ -398,7 +398,7 @@ unsafe extern "C" yoshi_game_attacks3lw(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_game_attacks3hi(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attacks3hi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("tail1"), 8.0, 94, 75, 0, 60, 4.0, 0.0, 0.0, 0.0, None, None, None, 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_SLAP, *ATTACK_REGION_TAIL);
@@ -412,7 +412,7 @@ unsafe extern "C" yoshi_game_attacks3hi(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_game_attackairn(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attackairn(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -436,7 +436,7 @@ unsafe extern "C" yoshi_game_attackairn(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_game_attackairb(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attackairb(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 6.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -471,7 +471,7 @@ unsafe extern "C" yoshi_game_attackairb(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_game_attackairhi(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attackairhi(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 5.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -492,7 +492,7 @@ unsafe extern "C" yoshi_game_attackairhi(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_game_attackairlw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attackairlw(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 14.0);
     if macros::is_excute(agent) {
         WorkModule::on_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING);
@@ -540,7 +540,7 @@ WorkModule::off_flag(agent.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENAB
 }
 }
 
-unsafe extern "C" yoshi_game_landingairlw(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_landingairlw(agent: &mut L2CAgentBase) {
     wait(agent.lua_state_agent, 1.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 4.8, 30, 179, 0, 55, 5.0, 0.0, 2.5, -3.0, Some(0.0), Some(2.5), Some(6.5), 1.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_POS, false, 9, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_S, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
@@ -551,7 +551,7 @@ unsafe extern "C" yoshi_game_landingairlw(agent: &mut L2CAgentBase) {
     }
 }
 
-unsafe extern "C" yoshi_game_attack12(agent: &mut L2CAgentBase) {
+unsafe extern "C" fn yoshi_game_attack12(agent: &mut L2CAgentBase) {
     frame(agent.lua_state_agent, 3.0);
     if macros::is_excute(agent) {
         macros::ATTACK(agent, 0, 0, Hash40::new("top"), 7.0, 361, 102, 0, 56, 3.0, 0.0, 7.0, 5.0, None, None, None, 2.0, 1.0, *ATTACK_SETOFF_KIND_ON, *ATTACK_LR_CHECK_F, false, 0, 0.0, 0, false, false, false, false, true, *COLLISION_SITUATION_MASK_GA, *COLLISION_CATEGORY_MASK_ALL, *COLLISION_PART_MASK_ALL, false, Hash40::new("collision_attr_normal"), *ATTACK_SOUND_LEVEL_M, *COLLISION_SOUND_ATTR_KICK, *ATTACK_REGION_KICK);
